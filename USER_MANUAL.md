@@ -1,7 +1,7 @@
 # TokenMeter v1.0 — User Manual
 **Developed by Sagnik Kumar**
 
-TokenMeter is a premium browser extension for Microsoft Edge and Google Chrome designed to track input and output tokens consumed during chats on LLM interfaces (ChatGPT, Claude, and Gemini). It calculates real-time API-equivalent token costs and organizes weekly consumption metrics.
+TokenMeter is a premium browser extension designed to track input and output tokens consumed during chats on LLM interfaces (ChatGPT, Claude, and Gemini). It calculates real-time API-equivalent token costs and organizes weekly consumption metrics. Note: Currently, only Microsoft Edge is officially supported.
 
 ---
 
@@ -16,7 +16,9 @@ TokenMeter is a premium browser extension for Microsoft Edge and Google Chrome d
 
 ## 1. Installation Guide
 
-To install and run TokenMeter on your local machine using Git, follow the instructions below:
+Note: TokenMeter currently only supports Microsoft Edge. Support for other browsers (such as Google Chrome) is not officially supported at this time.
+
+To install and run TokenMeter on Microsoft Edge using Git, follow the instructions below:
 
 ### Prerequisites
 Make sure you have Git installed on your computer.
@@ -28,17 +30,6 @@ Make sure you have Git installed on your computer.
    ```
 2. Open Microsoft Edge and navigate to `edge://extensions/`.
 3. Locate the **Developer mode** toggle in the bottom-left corner of the page and switch it **ON**.
-4. Click the **Load unpacked** button at the top of the screen.
-5. Select the root folder of the cloned repository (the directory containing `manifest.json`).
-6. Click the extensions puzzle icon in your browser toolbar to pin **TokenMeter**.
-
-### Steps for Google Chrome
-1. Open a terminal and clone the repository:
-   ```bash
-   git clone https://github.com/Sk1750-alt/LLM_Usage_Tracker.git
-   ```
-2. Open Google Chrome and navigate to `chrome://extensions/`.
-3. Locate the **Developer mode** toggle in the top-right corner of the page and switch it **ON**.
 4. Click the **Load unpacked** button at the top of the screen.
 5. Select the root folder of the cloned repository (the directory containing `manifest.json`).
 6. Click the extensions puzzle icon in your browser toolbar to pin **TokenMeter**.

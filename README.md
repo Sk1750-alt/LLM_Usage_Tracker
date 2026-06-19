@@ -1,7 +1,7 @@
 # TokenMeter v1.0
 **Developed by Sagnik Kumar**
 
-A premium Microsoft Edge and Google Chrome extension that tracks input and output tokens consumed in real-time on ChatGPT, Claude, and Gemini.
+A premium browser extension that tracks input and output tokens consumed in real-time on ChatGPT, Claude, and Gemini. Note: Currently, only Microsoft Edge is supported.
 
 ## Features
 - **Real-Time Token Tracking:** Displays active token usage (input and output) for the current chat session.
@@ -12,12 +12,14 @@ A premium Microsoft Edge and Google Chrome extension that tracks input and outpu
 - **Professional Minimalist Design:** High-contrast borders, clean layout grids, and inline SVG icons.
 
 ## Installation from GitHub
+Note: Currently, TokenMeter only supports Microsoft Edge.
+
 1. Clone this repository to your local machine:
    ```bash
    git clone https://github.com/Sk1750-alt/LLM_Usage_Tracker.git
    ```
-2. Open Microsoft Edge (or Google Chrome) and navigate to `edge://extensions/` (or `chrome://extensions/`).
-3. Enable **Developer mode** using the toggle switch (located in the bottom-left corner of Edge, or the top-right corner of Chrome).
+2. Open Microsoft Edge and navigate to `edge://extensions/`.
+3. Enable **Developer mode** using the toggle switch (located in the bottom-left corner of the page).
 4. Click the **Load unpacked** button.
 5. Select the root folder of the cloned repository (the directory containing `manifest.json`).
 6. Open your browser's extensions menu, pin **TokenMeter**, and begin using ChatGPT, Claude, or Gemini.

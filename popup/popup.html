@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>LLM Usage Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body class="theme-midnight">
+    <div class="app-container">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="logo-area">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          <div class="logo-text">
+            <h2>TokenMeter</h2>
+            <span class="badge">Edge Pro</span>
+          </div>
+        <div class="header-right">
+          <button id="popoutBtn" class="icon-btn" title="Open in separate window">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="popout-icon">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+          <div class="total-cost-badge">
+            <span class="cost-label">EST. COST</span>
+            <span class="cost-value" id="headerTotalCost">$0.000</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="tab-btn active" data-tab="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon">
+            <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+            <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+            <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+            <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+          </svg>
+          Dashboard
+        </button>
+        <button class="tab-btn" data-tab="conversations">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Chats
+        </button>
+        <button class="tab-btn" data-tab="history">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+          History
+        </button>
+        <button class="tab-btn" data-tab="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          Settings
+        </button>
+      </nav>
+
+      <!-- Main Content Views -->
+      <main class="content-views">
+        <!-- 1. Dashboard View -->
+        <section id="dashboard" class="tab-view active">
+          <div class="stats-summary">
+            <div class="summary-card">
+              <span class="summary-label">Total Input</span>
+              <span class="summary-num" id="totalInputTokens">0</span>
+              <span class="summary-sub">Tokens</span>
+            </div>
+            <div class="summary-card">
+              <span class="summary-label">Total Output</span>
+              <span class="summary-num" id="totalOutputTokens">0</span>
+              <span class="summary-sub">Tokens</span>
+            </div>
+          </div>
+          
+          <div class="section-title">Provider Breakdown</div>
+          <div id="providerCards" class="provider-list">
+            <!-- Cards will be dynamically inserted here -->
+          </div>
+        </section>
+
+        <!-- 2. Conversations View -->
+        <section id="conversations" class="tab-view">
+          <div class="section-title">Active Chats</div>
+          <div class="search-box">
+            <input type="text" id="threadSearch" class="custom-input" placeholder="Search chats by title...">
+          </div>
+          <div id="threadList" class="thread-list">
+            <!-- Dynamic thread items will be inserted here -->
+          </div>
+        </section>
+
+        <!-- 3. History View -->
+        <section id="history" class="tab-view">
+          <div class="section-title">Weekly Usage History</div>
+          <div class="chart-container">
+            <div id="chartLoading" class="chart-message">No history recorded yet</div>
+            <svg id="historyChart" class="svg-chart" viewBox="0 0 320 180" style="display: none;">
+              <!-- Grid lines -->
+              <line x1="40" y1="20" x2="310" y2="20" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" class="grid-line"></line>
+              <line x1="40" y1="65" x2="310" y2="65" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" class="grid-line"></line>
+              <line x1="40" y1="110" x2="310" y2="110" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" class="grid-line"></line>
+              <line x1="40" y1="150" x2="310" y2="150" stroke="#475569" stroke-width="1"></line>
+              
+              <!-- Bars and labels are inserted dynamically -->
+              <g id="chartBars"></g>
+              <g id="chartXAxisLabels"></g>
+              <g id="chartYAxisLabels"></g>
+            </svg>
+          </div>
+          <div class="history-metrics">
+            <div class="metric-row">
+              <span>Average Daily Tokens:</span>
+              <strong id="avgDailyTokens">0</strong>
+            </div>
+            <div class="metric-row">
+              <span>Peak Day:</span>
+              <strong id="peakDayName">-</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Settings View -->
+        <section id="settings" class="tab-view">
+          <div class="section-title">Configuration</div>
+          
+          <div class="settings-group">
+            <div class="setting-item">
+              <label for="appTheme">Active Theme</label>
+              <select id="appTheme" class="custom-select">
+                <option value="midnight">Midnight Dark</option>
+                <option value="slate">Slate Dark</option>
+                <option value="light">Light Mode</option>
+              </select>
+            </div>
+
+            <div class="setting-item">
+              <label for="chatgptModel">ChatGPT Default Model</label>
+              <select id="chatgptModel" class="custom-select">
+                <option value="gpt-4o" data-input="2.50" data-output="10.00">GPT-4o ($2.50 / $10.00 per M)</option>
+                <option value="gpt-4o-mini" data-input="0.15" data-output="0.60">GPT-4o mini ($0.15 / $0.60 per M)</option>
+                <option value="gpt-4-turbo" data-input="10.00" data-output="30.00">GPT-4 Turbo ($10.00 / $30.00 per M)</option>
+              </select>
+            </div>
+            
+            <div class="setting-item">
+              <label for="claudeModel">Claude Default Model</label>
+              <select id="claudeModel" class="custom-select">
+                <option value="claude-3-5-sonnet" data-input="3.00" data-output="15.00">Claude 3.5 Sonnet ($3.00 / $15.00 per M)</option>
+                <option value="claude-3-5-haiku" data-input="0.80" data-output="4.00">Claude 3.5 Haiku ($0.80 / $4.00 per M)</option>
+                <option value="claude-3-opus" data-input="15.00" data-output="75.00">Claude 3 Opus ($15.00 / $75.00 per M)</option>
+              </select>
+            </div>
+
+            <div class="setting-item">
+              <label for="geminiModel">Gemini Default Model</label>
+              <select id="geminiModel" class="custom-select">
+                <option value="gemini-1-5-flash" data-input="0.075" data-output="0.30">Gemini 1.5 Flash ($0.075 / $0.30 per M)</option>
+                <option value="gemini-1-5-pro" data-input="1.25" data-output="5.00">Gemini 1.5 Pro ($1.25 / $5.00 per M)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="settings-actions">
+            <button id="saveSettingsBtn" class="btn btn-primary">Save Configuration</button>
+            <button id="resetDataBtn" class="btn btn-danger">Reset All Logs</button>
+          </div>
+      </main>
+      <footer class="app-footer">Developed by Sagnik Kumar</footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

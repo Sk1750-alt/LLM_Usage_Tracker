@@ -9,11 +9,18 @@ A premium Microsoft Edge and Google Chrome extension that tracks input and outpu
 - **Chats Explorer:** View a list of your conversations with specific costs and search through them by title.
 - **Multi-Theme Customizer:** Choose between Midnight Dark, Slate Dark, and Light Mode to suit your preference.
 - **Visual Analytics:** View your token consumption history from the past 7 days on an interactive bar chart.
-- **Professional Minimalist Design:** High-contrast borders, clean layout grids, and inline SVG icons (no text emojis).
+- **Professional Minimalist Design:** High-contrast borders, clean layout grids, and inline SVG icons.
 
-## How to Install (For Friends)
-1. Download and extract the shared `tokenmeter-v1.0.zip` file to a folder on your computer.
-2. Open Microsoft Edge (or Google Chrome) and navigate to `edge://extensions` (or `chrome://extensions`).
-3. Turn on **Developer mode** (bottom-left toggle in Edge, top-right in Chrome).
-4. Click **Load unpacked** and select the extracted `edge-llm-usage-tracker` folder.
-5. Click the Extensions puzzle icon in your toolbar, pin **TokenMeter**, and start chatting on ChatGPT, Claude, or Gemini!
+## Installation from GitHub
+1. Clone this repository to your local machine:
+   ```bash
+   git clone https://github.com/Sk1750-alt/LLM_Usage_Tracker.git
+   ```
+2. Open Microsoft Edge (or Google Chrome) and navigate to `edge://extensions/` (or `chrome://extensions/`).
+3. Enable **Developer mode** using the toggle switch (located in the bottom-left corner of Edge, or the top-right corner of Chrome).
+4. Click the **Load unpacked** button.
+5. Select the root folder of the cloned repository (the directory containing `manifest.json`).
+6. Open your browser's extensions menu, pin **TokenMeter**, and begin using ChatGPT, Claude, or Gemini.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

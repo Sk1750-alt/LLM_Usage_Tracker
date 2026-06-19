@@ -5,34 +5,47 @@ TokenMeter is a premium browser extension for Microsoft Edge and Google Chrome d
 
 ---
 
-## 📖 Table of Contents
-1. [Installation Guide](#-1-installation-guide)
-2. [How it Works](#-2-how-it-works)
-3. [Features & Navigation](#-3-features--navigation)
-4. [Settings & Customization](#-4-settings--customization)
-5. [Troubleshooting & FAQs](#-5-troubleshooting--faqs)
+## Table of Contents
+1. [Installation Guide](#1-installation-guide)
+2. [How it Works](#2-how-it-works)
+3. [Features & Navigation](#3-features-navigation)
+4. [Settings & Customization](#4-settings-customization)
+5. [Troubleshooting & FAQs](#5-troubleshooting-faqs)
 
 ---
 
-## 🚀 1. Installation Guide
+## 1. Installation Guide
 
-### For Microsoft Edge
-1. Extract the shared `tokenmeter-v1.0.zip` file to a permanent directory on your computer.
-2. In your Edge address bar, navigate to `edge://extensions/`.
+To install and run TokenMeter on your local machine using Git, follow the instructions below:
+
+### Prerequisites
+Make sure you have Git installed on your computer.
+
+### Steps for Microsoft Edge
+1. Open a terminal and clone the repository:
+   ```bash
+   git clone https://github.com/Sk1750-alt/LLM_Usage_Tracker.git
+   ```
+2. Open Microsoft Edge and navigate to `edge://extensions/`.
 3. Locate the **Developer mode** toggle in the bottom-left corner of the page and switch it **ON**.
 4. Click the **Load unpacked** button at the top of the screen.
-5. Browse to and select the extracted `edge-llm-usage-tracker` folder.
-6. The extension is now loaded! Click the extensions puzzle icon in your browser toolbar to pin **TokenMeter**.
+5. Select the root folder of the cloned repository (the directory containing `manifest.json`).
+6. Click the extensions puzzle icon in your browser toolbar to pin **TokenMeter**.
 
-### For Google Chrome
-1. Extract the zip file.
-2. Navigate to `chrome://extensions/`.
-3. Toggle the **Developer mode** switch in the top-right corner to **ON**.
-4. Click **Load unpacked** and select the extracted folder.
+### Steps for Google Chrome
+1. Open a terminal and clone the repository:
+   ```bash
+   git clone https://github.com/Sk1750-alt/LLM_Usage_Tracker.git
+   ```
+2. Open Google Chrome and navigate to `chrome://extensions/`.
+3. Locate the **Developer mode** toggle in the top-right corner of the page and switch it **ON**.
+4. Click the **Load unpacked** button at the top of the screen.
+5. Select the root folder of the cloned repository (the directory containing `manifest.json`).
+6. Click the extensions puzzle icon in your browser toolbar to pin **TokenMeter**.
 
 ---
 
-## ⚙️ 2. How it Works
+## 2. How it Works
 
 TokenMeter operates securely and locally on your browser.
 
@@ -58,7 +71,7 @@ This serves as a high-fidelity proxy for English and code blocks without loading
 
 ---
 
-## 📊 3. Features & Navigation
+## 3. Features & Navigation
 
 ### 1. Dashboard Tab
 * **Total Metrics:** Shows accumulated input tokens and output tokens across all services.
@@ -76,7 +89,7 @@ This serves as a high-fidelity proxy for English and code blocks without loading
 
 ---
 
-## 🛠️ 4. Settings & Customization
+## 4. Settings & Customization
 
 The **Settings Tab** allows you to choose your layout styling and configure fallbacks:
 
@@ -105,7 +118,7 @@ If model auto-detection is unavailable, calculations fall back to these default 
 
 ---
 
-## ❓ 5. Troubleshooting & FAQs
+## 5. Troubleshooting & FAQs
 
 #### Q: The extension isn't counting my tokens.
 * **A:** Check if Developer Mode is enabled and reload the extension in `edge://extensions/`. Ensure you are logged in and chatting on `chatgpt.com`, `claude.ai`, or `gemini.google.com`.
